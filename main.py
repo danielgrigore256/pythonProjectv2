@@ -1,241 +1,34 @@
+import json
 
-jay = {
-    "totalCount": "5",
-    "imdata": [
-        {
-            "hcloudCtx": {
-                "attributes": {
-                    "awsVPC": "",
-                    "azResourceGroup": "",
-                    "azVirtualNetwork": "",
-                    "childAction": "",
-                    "ctxProfileName": "ct_ctxprofile_us-west-1",
-                    "delegateDn": "uni/tn-infra/ctxprofile-ct_ctxprofile_us-west-1",
-                    "description": "",
-                    "dn": "acct-[infra]/region-[us-west-1]/context-[overlay-1]-addr-[10.10.0.0/25]",
-                    "encap": "16777199",
-                    "encapType": "vxlan",
-                    "fvCtxDn": "uni/tn-infra/ctx-overlay-1",
-                    "interSitePeeringEnabled": "yes",
-                    "lcOwn": "local",
-                    "modTs": "2020-10-22T16:27:14.966+00:00",
-                    "name": "overlay-1",
-                    "nameAlias": "",
-                    "primaryCidr": "10.10.0.0/25",
-                    "resolvedObjDn": "ctxdefcont/ctxProfileVrfDef-[uni/tn-infra/ctxprofile-ct_ctxprofile_us-west-1]-ctxDef-[uni/tn-infra/ctx-overlay-1]",
-                    "status": "",
-                    "tenantName": "infra",
-                    "type": "regular"
-                },
-                "children": [
-                    {
-                        "healthInst": {
-                            "attributes": {
-                                "childAction": "",
-                                "chng": "0",
-                                "cur": "80",
-                                "maxSev": "cleared",
-                                "prev": "100",
-                                "rn": "health",
-                                "status": "",
-                                "twScore": "100",
-                                "updTs": "2020-10-27T12:46:50.008+00:00"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "hcloudCtx": {
-                "attributes": {
-                    "awsVPC": "",
-                    "azResourceGroup": "",
-                    "azVirtualNetwork": "",
-                    "childAction": "",
-                    "ctxProfileName": "ct_ctxprofile_us-west-1",
-                    "delegateDn": "uni/tn-infra/ctxprofile-ct_ctxprofile_us-west-1",
-                    "description": "",
-                    "dn": "acct-[infra]/region-[us-west-1]/context-[overlay-1]-addr-[10.10.0.0/25]",
-                    "encap": "16777199",
-                    "encapType": "vxlan",
-                    "fvCtxDn": "uni/tn-infra/ctx-overlay-1",
-                    "interSitePeeringEnabled": "yes",
-                    "lcOwn": "local",
-                    "modTs": "2020-10-20T16:27:14.966+00:00",
-                    "name": "overlay-1",
-                    "nameAlias": "",
-                    "primaryCidr": "10.10.0.0/25",
-                    "resolvedObjDn": "ctxdefcont/ctxProfileVrfDef-[uni/tn-infra/ctxprofile-ct_ctxprofile_us-west-1]-ctxDef-[uni/tn-infra/ctx-overlay-1]",
-                    "status": "",
-                    "tenantName": "infra",
-                    "type": "regular"
-                },
-                "children": [
-                    {
-                        "healthInst": {
-                            "attributes": {
-                                "childAction": "",
-                                "chng": "0",
-                                "cur": "70",
-                                "maxSev": "cleared",
-                                "prev": "100",
-                                "rn": "health",
-                                "status": "",
-                                "twScore": "100",
-                                "updTs": "2020-10-27T12:46:50.008+00:00"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "hcloudCtx": {
-                "attributes": {
-                    "awsVPC": "",
-                    "azResourceGroup": "",
-                    "azVirtualNetwork": "",
-                    "childAction": "",
-                    "ctxProfileName": "ct_ctxprofile_us-west-1",
-                    "delegateDn": "uni/tn-infra/ctxprofile-ct_ctxprofile_us-west-1",
-                    "description": "",
-                    "dn": "acct-[infra]/region-[us-west-1]/context-[overlay-1]-addr-[10.10.0.0/25]",
-                    "encap": "16777199",
-                    "encapType": "vxlan",
-                    "fvCtxDn": "uni/tn-infra/ctx-overlay-1",
-                    "interSitePeeringEnabled": "yes",
-                    "lcOwn": "local",
-                    "modTs": "2020-11-22T11:27:14.966+00:00",
-                    "name": "overlay-1",
-                    "nameAlias": "",
-                    "primaryCidr": "10.10.0.0/25",
-                    "resolvedObjDn": "ctxdefcont/ctxProfileVrfDef-[uni/tn-infra/ctxprofile-ct_ctxprofile_us-west-1]-ctxDef-[uni/tn-infra/ctx-overlay-1]",
-                    "status": "",
-                    "tenantName": "infra",
-                    "type": "regular"
-                },
-                "children": [
-                    {
-                        "healthInst": {
-                            "attributes": {
-                                "childAction": "",
-                                "chng": "0",
-                                "cur": "87",
-                                "maxSev": "cleared",
-                                "prev": "100",
-                                "rn": "health",
-                                "status": "",
-                                "twScore": "100",
-                                "updTs": "2020-10-27T12:46:50.008+00:00"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "hcloudCtx": {
-                "attributes": {
-                    "awsVPC": "",
-                    "azResourceGroup": "",
-                    "azVirtualNetwork": "",
-                    "childAction": "",
-                    "ctxProfileName": "CLD_CTX_PROF_FOR_SG",
-                    "delegateDn": "uni/tn-Tenant_sg/ctxprofile-CLD_CTX_PROF_FOR_SG",
-                    "description": "",
-                    "dn": "acct-[Tenant_sg]/region-[us-west-1]/context-[Vrf_sg]-addr-[20.20.0.0/16]",
-                    "encap": "2719747",
-                    "encapType": "vxlan",
-                    "fvCtxDn": "uni/tn-Tenant_sg/ctx-Vrf_sg",
-                    "interSitePeeringEnabled": "no",
-                    "lcOwn": "local",
-                    "modTs": "2020-10-26T13:31:18.280+00:00",
-                    "name": "Vrf_sg",
-                    "nameAlias": "",
-                    "primaryCidr": "20.20.0.0/16",
-                    "resolvedObjDn": "ctxdefcont/ctxProfileVrfDef-[uni/tn-Tenant_sg/ctxprofile-CLD_CTX_PROF_FOR_SG]-ctxDef-[uni/tn-Tenant_sg/ctx-Vrf_sg]",
-                    "status": "",
-                    "tenantName": "Tenant_sg",
-                    "type": "regular"
-                },
-                "children": [
-                    {
-                        "healthInst": {
-                            "attributes": {
-                                "childAction": "",
-                                "chng": "0",
-                                "cur": "100",
-                                "maxSev": "cleared",
-                                "prev": "100",
-                                "rn": "health",
-                                "status": "",
-                                "twScore": "100",
-                                "updTs": "2020-10-27T12:46:50.008+00:00"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "hcloudCtx": {
-                "attributes": {
-                    "awsVPC": "",
-                    "azResourceGroup": "",
-                    "azVirtualNetwork": "",
-                    "childAction": "",
-                    "ctxProfileName": "ct_ctxprofile_us-west-2",
-                    "delegateDn": "uni/tn-infra/ctxprofile-ct_ctxprofile_us-west-2",
-                    "description": "",
-                    "dn": "acct-[infra]/region-[us-west-2]/context-[overlay-1]-addr-[11.11.11.0/25]",
-                    "encap": "16777199",
-                    "encapType": "vxlan",
-                    "fvCtxDn": "uni/tn-infra/ctx-overlay-1",
-                    "interSitePeeringEnabled": "yes",
-                    "lcOwn": "local",
-                    "modTs": "2020-10-27T09:45:41.089+00:00",
-                    "name": "overlay-1",
-                    "nameAlias": "",
-                    "primaryCidr": "11.11.11.0/25",
-                    "resolvedObjDn": "ctxdefcont/ctxProfileVrfDef-[uni/tn-infra/ctxprofile-ct_ctxprofile_us-west-2]-ctxDef-[uni/tn-infra/ctx-overlay-1]",
-                    "status": "",
-                    "tenantName": "infra",
-                    "type": "regular"
-                },
-                "children": [
-                    {
-                        "healthInst": {
-                            "attributes": {
-                                "childAction": "",
-                                "chng": "0",
-                                "cur": "12",
-                                "maxSev": "cleared",
-                                "prev": "100",
-                                "rn": "health",
-                                "status": "",
-                                "twScore": "100",
-                                "updTs": "2020-10-27T12:46:50.008+00:00"
-                            }
-                        }
-                    }
-                ]
-            }
-        }
-    ]
-}
+
+jay = json.load(open(r'C:\Users\DGrigore\AppData\Roaming\JetBrains\PyCharmCE2020.3\scratches\scratch.json5', 'r'))
 
 
 class HealthInst:
     counter2 = 0
 
     def __init__(self):
+
+        """
+        __init__ method : adds into the instanced object attributes from JSON file
+            param current_health : cur attribute from JSON file
+                type current_health : int
+            param max_sev: maxSev attribute from JSON file
+                type max_sev : string
+        """
         j = int(HealthInst.counter2)
-        self.current_health = jay["imdata"][j]["hcloudCtx"]["children"][0]["healthInst"]["attributes"]["cur"]
+        self.current_health = int(jay["imdata"][j]["hcloudCtx"]["children"][0]["healthInst"]["attributes"]["cur"])
         self.max_sev = jay["imdata"][j]["hcloudCtx"]["children"][0]["healthInst"]["attributes"]["maxSev"]
         HealthInst.counter2 += 1
 
     def displayed_health(self):
+
+        """
+
+        compares the value of current_health attribute to 100
+        :return: a string
+
+        """
         if int(self.current_health) == 100:
             print("Healthy")
         else:
@@ -246,26 +39,56 @@ class CloudCtx(HealthInst):
     counter = 0
 
     def __init__(self):
-        i = CloudCtx.counter
-        self.name = jay["imdata"][i]["hcloudCtx"]["attributes"]["name"]
-        if self.name == "":
-            self.name = "-"
-        self.tenant_name = jay["imdata"][i]["hcloudCtx"]["attributes"]["tenantName"]
-        if self.tenant_name == "":
-            self.tenant_name = "-"
-        self.description = jay["imdata"][i]["hcloudCtx"]["attributes"]["description"]
-        if self.description == "":
-            self.description = "-"
-        self.name_alias = jay["imdata"][i]["hcloudCtx"]["attributes"]["nameAlias"]
-        if self.name_alias == "":
-            self.name_alias = "-"
-        self.ctx_profile_name = jay["imdata"][i]["hcloudCtx"]["attributes"]["ctxProfileName"]
-        if self.ctx_profile_name == "":
-            self.ctx_profile_name = "-"
+        """
+
+        __init__ method : adds into the instanced object attributes from JSON file
+
+        param name : name attribute
+            type name : string
+        param tenant_name : tenant name
+            type tenant_name : string
+        param description : description attribute
+            type description : string
+        parm name_alias : name alias attribute
+            type name_alias : string
+        super().__init__ : calls the initialization method of the parent class HealthInst
+        take_from_jay : method to access the json file and index the info to object attribute
+
+
+        """
+        self.name = CloudCtx.take_from_jay(CloudCtx.counter, "name")
+        self.tenant_name = CloudCtx.take_from_jay(CloudCtx.counter, "tenantName")
+        self.description = CloudCtx.take_from_jay(CloudCtx.counter, "description")
+        self.name_alias = CloudCtx.take_from_jay(CloudCtx.counter, "nameAlias")
+        self.ctx_profile_name = CloudCtx.take_from_jay(CloudCtx.counter, "ctxProfileName")
+
         CloudCtx.counter += 1
+
         super().__init__()
 
+    def take_from_jay(j, cheie):
+
+        """
+        :param j : index, connected to the number of entries, needed to index the JSON file
+            param type : int
+        :param cheie: Index key that is given to to acces the the json entry that suits the attribute
+            param type : str
+        :return: the information (data) that needs to be stored in the object attribute
+        param type : str
+
+        """
+
+        temp = jay["imdata"][j]["hcloudCtx"]["attributes"][cheie]
+        if temp == "":
+            temp = "-"
+        return temp
+
     def displayctx(self):
+
+        """
+        method to display on console all values of the object
+
+        """
         print("Name:", self.name)
         print("Tenant_ame:", self.tenant_name)
         print("Description", self.description)
@@ -273,13 +96,21 @@ class CloudCtx(HealthInst):
         print("CTX Profile Nmae:", self.ctx_profile_name)
 
     def health(self):
+
+        """
+        calling the displayed_health method of parent class,HealthInst()
+
+        """
         super().displayed_health()
 
+
+"""
 
 # creating objects that use CloudCtx and Healthinst values from json
 ctx1 = CloudCtx()
 ctx2 = CloudCtx()
 ctx3 = CloudCtx()
+
 
 print(ctx1.name, ctx1.tenant_name, ctx1.current_health)
 print(ctx2.name, ctx2.tenant_name, ctx2.current_health)
@@ -291,3 +122,15 @@ for x in order:
     print(x)
 # keeping track of objects
 print("We got", CloudCtx.counter, "objects")
+"""
+ctx1 = CloudCtx()
+ctx2 = CloudCtx()
+ctx3 = CloudCtx()
+ctx4 = CloudCtx()
+ctx5 = CloudCtx()
+
+ctx1.displayctx()
+ctx2.displayctx()
+ctx3.displayctx()
+ctx4.displayctx()
+ctx5.displayctx()
