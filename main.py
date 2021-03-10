@@ -51,15 +51,17 @@ class CloudCtx:
 
     def display_ctx(self):
         """
-        method to display on console all values of the object
+        method to display on console all attribute values of the object
 
         """
-        print("Name:", self.name)
-        print("Tenant_ame:", self.tenant_name)
-        print("Description", self.description)
-        print("Name_alias:", self.name_alias)
-        print("CTX Profile Name:", self.ctx_profile_name)
-        print("Health Status:", self.displayed_health)
+        print("""
+        Name : {}
+        Tenant_ame: {}
+        Description : {}
+        Name_alias: {}
+        CTX Profile Name: {} 
+        Health Status: {} """.format(self.name, self.tenant_name, self.description,
+                                     self.name_alias, self.ctx_profile_name, self.displayed_health ))
 
     @staticmethod
     def check_if_null(attribute):
@@ -144,6 +146,40 @@ class HealthInst:
             print(index)
 
 
+def take_from_hcloudctx(j, entry_index):
+
+        """
+            ***GETTING ATTRIBUTES FROM JSON FILE TO CloudCtx objects
+        :param j : index for the JSON file hcloudctx entry
+            param type : int
+        :param entry_index: Index key that is given to to acces the the json entry that suits the attribute
+            param type : str
+        :return: the information (data) that needs to be stored in the object attribute
+        param type : str
+
+        """
+
+        temp = jay["imdata"][j]["hcloudCtx"]["attributes"][entry_index]
+        if temp == "":
+            temp = "-"
+        return temp
+
+def take_from_child(k, child_key):
+
+    """
+    ***Function to read values from child entryes in JSON and adding them to HealthInst class objects attributes
+    :param k: index for hcloudctx childs possition
+        :type: int
+    :param child_key: key of the entry that holds the value for HealthInst attributes
+        :type: string
+    :return: a string from JSON file
+    """
+    if jay["imdata"][i]["hcloudCtx"]["children"] == []:
+        child_value = "0"
+    else :
+        child_value = jay["imdata"][k]["hcloudCtx"]["children"][0]["healthInst"]["attributes"][child_key]
+    return child_value
+
 """
 Creating the loop to parse the json file and add contents from it to our classes
 Using variables like get_(attribute_name) to temporary store data from json and move to object's attribute
@@ -155,27 +191,17 @@ healthinst_obj_list = []
 
 for i in range(int(jay["totalCount"])):
 
-    # getting Healthinst attributes
-    # 13. Checking if children list is empty first
-    if jay["imdata"][i]["hcloudCtx"]["children"] == []:
-        get_current_health = 0
-        get_max_sev = "-"
-    else:
-        get_current_health = int(jay["imdata"][i]["hcloudCtx"]["children"][0]["healthInst"]["attributes"]["cur"])
-        get_max_sev = jay["imdata"][i]["hcloudCtx"]["children"][0]["healthInst"]["attributes"]["maxSev"]
 
-    # getting Cloud Ctx attributes
-    get_name = jay["imdata"][i]["hcloudCtx"]["attributes"]["name"]
-    get_tenant_name = jay["imdata"][i]["hcloudCtx"]["attributes"]["tenantName"]
-    get_description = jay["imdata"][i]["hcloudCtx"]["attributes"]["description"]
-    get_name_alias = jay["imdata"][i]["hcloudCtx"]["attributes"]["nameAlias"]
-    get_ctx_profile_name = jay["imdata"][i]["hcloudCtx"]["attributes"]["ctxProfileName"]
-    get_last_modified = jay["imdata"][i]["hcloudCtx"]["attributes"]["modTs"]
     # Creating temporary objects to store data that position "i"
-    obj_healthinst = HealthInst(get_current_health, get_max_sev)
-    obj_cloudctx = CloudCtx(get_name, get_tenant_name, get_description,
-                            get_name_alias, get_ctx_profile_name,
-                            obj_healthinst.displayed_health(), get_last_modified)
+    obj_healthinst = HealthInst(int(take_from_child(i,"cur")), take_from_child(i,"maxSev"))
+
+    obj_cloudctx = CloudCtx(take_from_hcloudctx(i, "name"),
+                            take_from_hcloudctx(i, "tenantName"),
+                            take_from_hcloudctx(i, "description"),
+                            take_from_hcloudctx(i, "nameAlias"),
+                            take_from_hcloudctx(i, "ctxProfileName"),
+                            obj_healthinst.displayed_health(),
+                            take_from_hcloudctx(i, "modTs"))
 
     # populating list with the instanced objects
     healthinst_obj_list.append(obj_healthinst)
