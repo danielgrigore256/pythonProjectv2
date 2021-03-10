@@ -44,6 +44,6 @@ class HealthInst:
         orders the current health values of the Healthinst objects attributes
         :return: prints the lowest to highest value (of health ) in a sorted healthlist[object.current_health]
         """
-
-        for index in sorted(HealthInst.healthlist):
-            print(index)
+        sorted_list = sorted(HealthInst.healthinst_obj_list, key=lambda x: x.current_health, reverse=False)
+        for x in sorted_list:
+            print (x.max_sev, x.current_health)
