@@ -1,6 +1,6 @@
 import json
-import HealthInst
-import CloudCtx
+from CloudCtx import CloudCtx
+from HealthInst import HealthInst
 
 # importing the contents of JSON file into the program
 jay = json.load(open(r'C:\Users\DGrigore\AppData\Roaming\JetBrains\PyCharmCE2020.3\scratches\scratch.json5', 'r'))
